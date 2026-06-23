@@ -32,9 +32,12 @@ export const DEFAULT_SETTINGS: Settings = {
 
 export async function getSettings(): Promise<Settings> {
   const s = await db.settings.get(1);
-  if (!s) {
-    await db.settings.put(DEFAULT_SETTINGS);
-    return DEFAULT_SETTINGS;
-  }
-  return s;
+  return s ?? DEFAULT_SETTINGS;
+}
+
+export async function ensureSettings(): Promise<Settings> {
+  const s = await db.settings.get(1);
+  if (s) return s;
+  await db.settings.put(DEFAULT_SETTINGS);
+  return DEFAULT_SETTINGS;
 }
