@@ -91,6 +91,15 @@ function PengaturanPage() {
         ))}
       </div>
 
+      <Link
+        to="/kebijakan-privasi"
+        className="flex items-center gap-3 rounded-2xl bg-card border border-border p-4 active:scale-[0.98] transition"
+      >
+        <Shield className="h-5 w-5 text-primary" />
+        <span className="flex-1 text-sm font-semibold">Kebijakan Privasi</span>
+        <ArrowLeft className="h-4 w-4 text-muted-foreground rotate-180" />
+      </Link>
+
       <button
         onClick={save}
         className="w-full rounded-2xl bg-primary text-primary-foreground py-4 font-semibold active:scale-[0.98] transition"
