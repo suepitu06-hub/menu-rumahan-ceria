@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Shield } from "lucide-react";
 import { db, getSettings, DEFAULT_SETTINGS } from "@/database/db";
 import { PageShell } from "@/components/PageShell";
 import type { Settings } from "@/types";
