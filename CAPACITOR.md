@@ -49,7 +49,8 @@ File `.aab` siap diupload ke [Google Play Console](https://play.google.com/conso
 - [ ] Icon launcher (`android/app/src/main/res/mipmap-*`) — ganti dengan icon kustom.
 - [ ] Splash screen — opsional, install `@capacitor/splash-screen`.
 - [ ] App signing key (Play App Signing direkomendasikan).
-- [ ] Privacy Policy URL (wajib di Play Console).
+- [ ] Privacy Policy URL (wajib di Play Console). Setelah publish, gunakan URL: `https://<domain-publik-anda>/kebijakan-privasi`. Halaman sudah tersedia di aplikasi dan menjelaskan bahwa Dapur Planner tidak mengumpulkan data pribadi serta menyimpan semua data secara lokal di perangkat.
+- [ ] Ganti email placeholder di `src/routes/kebijakan-privasi.tsx` dengan kontak aktual sebelum dipublikasikan.
 - [ ] Screenshot, deskripsi, kategori (Food & Drink / Lifestyle).
 - [ ] Versi (`versionCode` & `versionName` di `android/app/build.gradle`).
 - [ ] Target SDK ≥ 34 (cek `android/variables.gradle`).
