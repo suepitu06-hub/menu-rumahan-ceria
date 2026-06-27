@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PlannerRouteImport } from './routes/planner'
 import { Route as PengaturanRouteImport } from './routes/pengaturan'
+import { Route as KebijakanPrivasiRouteImport } from './routes/kebijakan-privasi'
 import { Route as FavoritRouteImport } from './routes/favorit'
 import { Route as BelanjaRouteImport } from './routes/belanja'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,6 +24,11 @@ const PlannerRoute = PlannerRouteImport.update({
 const PengaturanRoute = PengaturanRouteImport.update({
   id: '/pengaturan',
   path: '/pengaturan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KebijakanPrivasiRoute = KebijakanPrivasiRouteImport.update({
+  id: '/kebijakan-privasi',
+  path: '/kebijakan-privasi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FavoritRoute = FavoritRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/belanja': typeof BelanjaRoute
   '/favorit': typeof FavoritRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
   '/pengaturan': typeof PengaturanRoute
   '/planner': typeof PlannerRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/belanja': typeof BelanjaRoute
   '/favorit': typeof FavoritRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
   '/pengaturan': typeof PengaturanRoute
   '/planner': typeof PlannerRoute
 }
@@ -60,21 +68,42 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/belanja': typeof BelanjaRoute
   '/favorit': typeof FavoritRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
   '/pengaturan': typeof PengaturanRoute
   '/planner': typeof PlannerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/belanja' | '/favorit' | '/pengaturan' | '/planner'
+  fullPaths:
+    | '/'
+    | '/belanja'
+    | '/favorit'
+    | '/kebijakan-privasi'
+    | '/pengaturan'
+    | '/planner'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/belanja' | '/favorit' | '/pengaturan' | '/planner'
-  id: '__root__' | '/' | '/belanja' | '/favorit' | '/pengaturan' | '/planner'
+  to:
+    | '/'
+    | '/belanja'
+    | '/favorit'
+    | '/kebijakan-privasi'
+    | '/pengaturan'
+    | '/planner'
+  id:
+    | '__root__'
+    | '/'
+    | '/belanja'
+    | '/favorit'
+    | '/kebijakan-privasi'
+    | '/pengaturan'
+    | '/planner'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BelanjaRoute: typeof BelanjaRoute
   FavoritRoute: typeof FavoritRoute
+  KebijakanPrivasiRoute: typeof KebijakanPrivasiRoute
   PengaturanRoute: typeof PengaturanRoute
   PlannerRoute: typeof PlannerRoute
 }
@@ -93,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/pengaturan'
       fullPath: '/pengaturan'
       preLoaderRoute: typeof PengaturanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kebijakan-privasi': {
+      id: '/kebijakan-privasi'
+      path: '/kebijakan-privasi'
+      fullPath: '/kebijakan-privasi'
+      preLoaderRoute: typeof KebijakanPrivasiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/favorit': {
@@ -123,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BelanjaRoute: BelanjaRoute,
   FavoritRoute: FavoritRoute,
+  KebijakanPrivasiRoute: KebijakanPrivasiRoute,
   PengaturanRoute: PengaturanRoute,
   PlannerRoute: PlannerRoute,
 }
