@@ -9,11 +9,12 @@ cd dapur-planner
 npm install
 ```
 
-## 2. Build web assets
+## 2. Build web assets (SPA murni, tanpa SSR)
 ```bash
 npm run build
 ```
-Output ada di folder `dist/`.
+Output static SPA ada di folder `dist/` (`index.html` + `assets/`). Aplikasi menggunakan hash routing (`#/planner`, dst.) agar deep link tetap jalan di WebView Capacitor.
+
 
 ## 3. Tambahkan platform Android (sekali saja)
 ```bash
